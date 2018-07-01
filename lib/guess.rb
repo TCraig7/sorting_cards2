@@ -24,4 +24,8 @@ class Guess
       "Incorrect."
     end
   end
+
+  def record_guess(guess)
+
+  end
 end
