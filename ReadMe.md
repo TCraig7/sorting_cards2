@@ -91,20 +91,24 @@ round.percent_correct
 
 ## Iteration 3: Sorting the Deck
 
-In this iteration, we will start to add some algorithmic complexity. We are going to add to the deck object the ability to sort the cards based on their value from lowest to highest. (Assume that you won’t have two cards of the same value with different suits.)
+In this iteration, we will start to add some algorithmic complexity. We are going to add to the deck object the ability to sort the cards based on their value from lowest to highest. The order of values from lowest to highest is 2 through 10, Jack, Queen, King, Ace.
 
-Ruby has built in methods for sorting. You are NOT allowed to use any of these built in sorting methods.
+If two cards have the same value, the suit should be used to determine the order they are sorted. The order of suit from lowest to highest is Clubs, Diamonds, Hearts, Spades.
+
+You are NOT allowed to use any built in sorting methods.
 
 The interaction pattern will look like this:
 
 ```ruby
 card_1 = Card.new("4","Hearts")
-card_2 = Card.new("3", "Clubs")
+card_2 = Card.new("Jack", "Clubs")
 card_3 = Card.new("5", "Diamonds")
-deck = Deck.new([card_1, card_2, card_3])
+card_4 = Card.new("Ace", "Spades")
+card_5 = Card.new("Ace", "Diamonds")
+deck = Deck.new([card_1, card_2, card_3, card_4, card_5])
 
 deck.sort
-=> [card_2, card_1, card_3]
+=> [card_1, card_3, card_2, card_5, card_4]
 ```
 
 ## Iteration 4: Merge Sort
@@ -114,55 +118,63 @@ The interaction pattern will look like this:
 
 ```ruby
 card_1 = Card.new("4","Hearts")
-card_2 = Card.new("3", "Clubs")
+card_2 = Card.new("Jack", "Clubs")
 card_3 = Card.new("5", "Diamonds")
-deck = Deck.new([card_1, card_2, card_3])
+card_4 = Card.new("Ace", "Spades")
+card_5 = Card.new("Ace", "Diamonds")
+deck = Deck.new([card_1, card_2, card_3, card_4, card_5])
 
 deck.merge_sort
-=> [card_2, card_1, card_3]
+=> [card_1, card_3, card_2, card_5, card_4]
 ```
 
 **Merge Sort Resources**
 Youtube CS50
 Merge Sort Visualization
 Folk Dance
-## Extensions
-- Prevent duplicate cards from being added to a deck.
-- Put incorretly guessed cards back into the iteration to be asked again until the user guesses correctly.
-- A deck can have up to two jokers.
 
 ## Evaluation Rubric
+### Functionality
+- Student completes through Iteration 3
 
-The project will be assessed with the following guidelines:
+### Mechanics
 
-- 4: Above expectations
-- 3: Meets expectations
-- 2: Below expectations
-- 1: Well-below expectations
+The student:
 
-**Expectations:**
+- appropriately uses Strings, Integers, Floats, Ranges, Symbols, Nils, Arrays, and Hashes
+- implements best-choice enumerable methods to iterate over collections
+- uses boolean expressions and flow control structures to logically manage a program’s flow
+- uses methods, arguments, and return values to break code into logical components
+- creates Classes that utilize instance variables, attribute accessors, and instance methods
 
-**1. Ruby Syntax & Style**
-- Applies appropriate attribute encapsulation
-- Developer creates instance and local variables appropriately
-- Naming follows convention (is idiomatic)
-- Ruby methods used are logical and readable
-- Code is indented properly
-- Code does not exceed 80 characters per line
-- Each class has correctly-named files and corresponding test files in the proper directories
+### Design
 
-**2. Breaking Logic into Components**
-- Code is effectively broken into methods & classes
-- Developer writes methods less than 10 lines
-- No more than 3 methods break the principle of SRP
+The student:
 
-**3. Test-Driven Development**
-- Each method is tested
-- Tests implement Ruby syntax & style
+- adheres to the Single Responsibility and DRY principles
+creates Objects and Classes that appropriately encompass state and behavior
+- uses instance and local variables appropriately
+- writes readable code with the following characteristics:
+  - Variable and method names are self explanatory
+  - Methods are under 7 lines
+  - Lines of code are under 80 characters
+  - Project directory structure adheres to convention
+  - A linter reports less than 5 errors
 
-**4. Functionality**
-- Application meets all requirements (extension not req’d)
-- 4: Completes Iteration 4 and one extension.
-- 3: Completes Iteration 3
-- 2: Completes Iteration 2
-- 1: Completes Iteration 1
+### Testing
+
+The student:
+
+- writes Minitest tests that describe the expected behavior of a program according to technical specifications
+- names and orders tests so that a test file reads like documentation
+- writes Minitest assertions that accurately test a piece of functionality
+- writes a test before writing code that implements the behavior to make that test pass
+- writes both integration and unit tests
+
+### Version Control
+
+The student:
+
+- hosts their code on the master branch of their remote repository
+- makes commits in small chunks of functionality
+- submits and merges Pull Requests using the Github interface
