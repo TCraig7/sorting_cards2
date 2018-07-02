@@ -11,10 +11,11 @@ class Round
   end
 
   def current_card
-    deck.cards[0]
+    @deck.cards[0]
   end
 
   def record_guess(response)
+    response = "#{response[:value]} of #{response[:suit]}"
     guess = Guess.new(response, current_card)
     @guesses << guess
     if guess.feedback == "Correct!"

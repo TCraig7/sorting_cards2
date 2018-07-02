@@ -48,7 +48,7 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
-    guess = round.record_guess("3 of Hearts")
+    guess = round.record_guess({value: "3", suit: "Hearts"})
 
     assert_equal "3 of Hearts", guess.response
     assert_equal card_1, guess.card
@@ -62,7 +62,7 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
-    guess = round.record_guess("3 of Hearts")
+    guess = round.record_guess({value: "3", suit: "Hearts"})
 
     assert_equal card_2, round.current_card
   end
@@ -72,8 +72,8 @@ class RoundTest < Minitest::Test
     card_2 = Card.new("4", "Clubs")
     deck = Deck.new([card_1, card_2])
     round = Round.new(deck)
-    guess = round.record_guess("3 of Hearts")
-    guess = round.record_guess("Jack of Diamonds")
+    guess = round.record_guess({value: "3", suit: "Hearts"})
+    guess = round.record_guess({value: "Jack", suit: "Diamonds"})
 
     assert_equal "Jack of Diamonds", guess.response
     assert_equal card_2, guess.card
