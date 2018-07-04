@@ -15,8 +15,8 @@ class Round
   end
 
   def record_guess(response)
-    response = "#{response[:value]} of #{response[:suit]}"
-    guess = Guess.new(response, current_card)
+    card_attributes = "#{response[:value]} of #{response[:suit]}"
+    guess = Guess.new(card_attributes, current_card)
     @guesses << guess
     if guess.feedback == "Correct!"
       @number_correct += 1
