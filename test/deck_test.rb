@@ -43,4 +43,11 @@ class DeckTest < Minitest::Test
 
     assert_equal [card_1, card_3, card_2, card_5, card_4], deck.sort
   end
+
+  def test_it_can_return_cards_array_if_only_one_card
+    card_1 = Card.new("4","Hearts")
+    deck = Deck.new([card_1])
+
+    assert_equal [card_1], deck.sort
+  end
 end
