@@ -1,13 +1,11 @@
 class Card
 
   attr_reader   :value,
-                :suit,
-                :card_abs_value
+                :suit
 
   def initialize(value, suit)
     @value = value
     @suit = suit
-    @card_abs_value = card_value_int[value] + card_suit_int[suit]
   end
 
   def card_value_int
@@ -36,5 +34,9 @@ class Card
       "Hearts" => 3,
       "Spades" => 4
       }
+  end
+
+  def card_abs_value
+    card_value_int[value] + card_suit_int[suit]
   end
 end
