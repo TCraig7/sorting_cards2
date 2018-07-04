@@ -12,46 +12,18 @@ class Deck
     @cards.count
   end
 
-  def converted_value
-    @cards.map do |card|
-      @card_values[card.value]
-    end
-    @cards
-  end
-
-  def converted_suit
-    @cards.map do |card|
-      @card_values[card.suit]
-    end
-    @cards
-  end
-
-  def bubble_sort
-    return @cards if @cards.size <= 1
+  def sort
+    return @cards if @cards.size <=1
     swap = true
       while swap
         swap = false
-        (count - 1).times do |card|
-          if @cards[card] > @cards[card+ 1]
-            @cards[card], @cards[card + 1] = @cards[card + 1], @cards[card]
+        (count - 1).times do |i|
+          if @cards[i].card_abs_value > @cards[i + 1].card_abs_value
+            @cards[i], @cards[i + 1] = @cards[i + 1], @cards[i]
             swap = true
           end
         end
       end
-    @cards
-  end
-
-  def insertion_sort
-    (@cards.length).times do |i|
-      while i > 0
-        if @cards[i - 1] > @cards[i]
-          @cards[i], @cards[i - 1] = @cards[i - 1], @cards[i]
-        else
-          break
-        end
-        i -= 1
-      end
-    end
     @cards
   end
 

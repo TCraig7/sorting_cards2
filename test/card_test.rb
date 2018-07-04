@@ -16,4 +16,10 @@ class CardTest < Minitest::Test
     assert_equal "Ace", card.value
     assert_equal "Spades", card.suit
   end
+
+  def test_it_can_return_absolute_value
+    card = Card.new("Ace", "Spades")
+
+    assert_equal 144, card.card_abs_value    
+  end
 end
