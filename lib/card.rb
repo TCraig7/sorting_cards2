@@ -2,35 +2,39 @@ class Card
 
   attr_reader   :value,
                 :suit,
-                :abs_value
+                :card_abs_value
 
   def initialize(value, suit)
     @value = value
     @suit = suit
-    @card_value_int = 0
-    @card_suit_int = 0
+    @card_abs_value = card_value_int[value] + card_suit_int[suit]
   end
 
-  def card_values
-    card_values = {
-      "2" => 2,
-      "3" => 3,
-      "4" => 4,
-      "5" => 5,
-      "6" => 6,
-      "7" => 7,
-      "8" => 8,
-      "9" => 9,
-      "10" => 10,
-      "Jack" => 11,
-      "Queen" => 12,
-      "King" => 13,
-      "Ace" => 14,
-      "Clubs" => 100,
-      "Diamonds" => 200,
-      "Hearts" => 300,
-      "Spades" => 400
+  def card_value_int
+    card_value_int = {
+      "2" => 20,
+      "3" => 30,
+      "4" => 40,
+      "5" => 50,
+      "6" => 60,
+      "7" => 70,
+      "8" => 80,
+      "9" => 90,
+      "10" => 100,
+      "Jack" => 110,
+      "Queen" => 120,
+      "King" => 130,
+      "Ace" => 140
+      }
+      card_value_int
+  end
+
+  def card_suit_int
+    card_suit_int = {
+      "Clubs" => 1,
+      "Diamonds" => 2,
+      "Hearts" => 3,
+      "Spades" => 4
       }
   end
-
 end
