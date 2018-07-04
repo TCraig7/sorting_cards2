@@ -20,6 +20,6 @@ class CardTest < Minitest::Test
   def test_it_can_return_absolute_value
     card = Card.new("Ace", "Spades")
 
-    assert_equal 144, card.card_abs_value    
+    assert_equal 144, card.card_total   
   end
 end

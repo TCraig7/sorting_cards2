@@ -15,7 +15,7 @@ class Deck
   def sort
     return @cards if @cards.size <= 1
     (count - 1).times do |i|
-      if @cards[i].card_abs_value > @cards[i + 1].card_abs_value
+      if @cards[i].card_total > @cards[i + 1].card_total
         @cards[i], @cards[i + 1] = @cards[i + 1], @cards[i]
       end
     end

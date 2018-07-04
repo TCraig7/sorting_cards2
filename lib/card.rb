@@ -8,8 +8,8 @@ class Card
     @suit = suit
   end
 
-  def card_value_int
-    card_value_int = {
+  def card_value
+    card_value = {
       "2" => 20,
       "3" => 30,
       "4" => 40,
@@ -24,11 +24,10 @@ class Card
       "King" => 130,
       "Ace" => 140
       }
-      card_value_int
   end
 
-  def card_suit_int
-    card_suit_int = {
+  def card_suit
+    card_suit = {
       "Clubs" => 1,
       "Diamonds" => 2,
       "Hearts" => 3,
@@ -36,7 +35,7 @@ class Card
       }
   end
 
-  def card_abs_value
-    card_value_int[value] + card_suit_int[suit]
+  def card_total
+    card_value[value] + card_suit[suit]
   end
 end
